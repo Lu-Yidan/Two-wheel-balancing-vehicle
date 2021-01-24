@@ -28,7 +28,9 @@ Hardware/Src/Button.o: ../Hardware/Src/Button.cpp \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/tim.h ../Core/Inc/main.h ../Core/Inc/main.h \
- D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Encoder.h
+ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Encoder.h \
+ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h \
+ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h
 
 D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Button.h:
 
@@ -93,3 +95,7 @@ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/App/Inc/CPPmain.h:
 ../Core/Inc/main.h:
 
 D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Encoder.h:
+
+D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h:
+
+D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h:

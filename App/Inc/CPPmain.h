@@ -17,6 +17,7 @@
 
 #include "Button.h"
 #include "Encoder.h"
+#include "Motor.h"
 
 #ifdef __cpluscplus
 	extern "C"

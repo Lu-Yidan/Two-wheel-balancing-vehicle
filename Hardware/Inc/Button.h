@@ -8,6 +8,7 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 #include"CPPmain.h"
+#include "Motor.h"
 #ifdef __cpluscplus
 	extern "C"
 
@@ -41,7 +42,20 @@ public:
 		}
 		buttonDownFlag = false;
 	}
-
+	/*
+	 * @brief scan to make sure whether button is down.
+	 * If it is ,printf("button is down\r\n");
+	 * @para Motor &motor
+	 * @retral none
+	 */
+	void buttonScan(Motor *motor) {
+		isButtonDown = buttonDownFlag;
+		if (isButtonDown) {
+			printf("button is down\r\n");
+			motor->toggleRun();
+		}
+		buttonDownFlag = false;
+	}
 	uint16_t getGpioPin() const {
 		return GPIO_Pin;
 	}
@@ -62,6 +76,7 @@ private:
 	GPIO_TypeDef *GPIOx;
 	uint16_t GPIO_Pin;
 	bool isButtonDown;
+	Motor* motor;
 };
 
 #endif /* BUTTON_H_ */

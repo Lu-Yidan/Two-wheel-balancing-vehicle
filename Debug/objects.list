@@ -25,3 +25,4 @@
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
 "Hardware/Src/Button.o"
 "Hardware/Src/Encoder.o"
+"Hardware/Src/Motor.o"
