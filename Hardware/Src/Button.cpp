@@ -8,6 +8,16 @@
 #include "Button.h"
 
 bool buttonDownFlag;
+
+void Button::buttonScan(Motor *motor) {
+	isButtonDown = buttonDownFlag;
+	if (isButtonDown) {
+		printf("button is down\r\n");
+		motor->toggleRun();
+	}
+	buttonDownFlag = false;
+}
+
 /*
  * @brief: 当检测到外部中断触发并确定其为按键按下时，翻转led灯，按下标记被确定
  *

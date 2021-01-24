@@ -8,14 +8,13 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 #include"CPPmain.h"
-#include "Motor.h"
 #ifdef __cpluscplus
 	extern "C"
 
 #endif
 
 extern bool buttonDownFlag;
-
+class Motor;
 class Button {
 public:
 	/*
@@ -48,14 +47,15 @@ public:
 	 * @para Motor &motor
 	 * @retral none
 	 */
-	void buttonScan(Motor *motor) {
-		isButtonDown = buttonDownFlag;
-		if (isButtonDown) {
-			printf("button is down\r\n");
-			motor->toggleRun();
-		}
-		buttonDownFlag = false;
-	}
+	void buttonScan(Motor* motor);
+//	void buttonScan(Motor* motor) {
+//		isButtonDown = buttonDownFlag;
+//		if (isButtonDown) {
+//			printf("button is down\r\n");
+//			motor->toggleRun();
+//		}
+//		buttonDownFlag = false;
+//	}
 	uint16_t getGpioPin() const {
 		return GPIO_Pin;
 	}
@@ -76,7 +76,6 @@ private:
 	GPIO_TypeDef *GPIOx;
 	uint16_t GPIO_Pin;
 	bool isButtonDown;
-	Motor* motor;
 };
 
 #endif /* BUTTON_H_ */
