@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Math/Src/subdir.mk
 -include Hardware/Src/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
@@ -60,9 +61,6 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Car_F103C8.list \
 
-OBJCOPY_HEX += \
-Car_F103C8.hex \
-
 OBJCOPY_BIN += \
 Car_F103C8.bin \
 
@@ -75,7 +73,7 @@ main-build: Car_F103C8.elf secondary-outputs
 
 # Tool invocations
 Car_F103C8.elf: $(OBJS) $(USER_OBJS) D:\Tools\STM32CubeIDE_1.5.0\workspace_1.5.0\Car_F103C8\STM32F103C8TX_FLASH.ld
-	arm-none-eabi-g++ -o "Car_F103C8.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Tools\STM32CubeIDE_1.5.0\workspace_1.5.0\Car_F103C8\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Car_F103C8.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "Car_F103C8.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Tools\STM32CubeIDE_1.5.0\workspace_1.5.0\Car_F103C8\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Car_F103C8.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -89,11 +87,6 @@ Car_F103C8.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Car_F103C8.hex: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Car_F103C8.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 Car_F103C8.bin: $(EXECUTABLES)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Car_F103C8.bin"
 	@echo 'Finished building: $@'
@@ -104,7 +97,7 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

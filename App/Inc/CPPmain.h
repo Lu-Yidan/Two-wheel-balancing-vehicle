@@ -14,15 +14,24 @@
 #include "main.h"
 #include "stdio.h"
 #include "stdbool.h"
+#include "math.h"
+/****************App***********************/
+#ifdef __cplusplus
+extern "C" {
+#include "Control.h"
+}
+#endif
 
+/****************Math**********************/
+#include "Filter.h"
+
+/****************Hardware******************/
 #include "Button.h"
 #include "Encoder.h"
 #include "Motor.h"
+#include "mpu6050.h"
 
-#ifdef __cpluscplus
-	extern "C"
 
-#endif
 void CppMain();
 
 #endif /* CPPMAIN_H_ */

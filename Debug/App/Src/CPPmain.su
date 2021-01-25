@@ -1,8 +1,1 @@
-Button.h:25:2:Button::Button(GPIO_TypeDef*, uint16_t)	24	static
-Encoder.h:23:2:Encoder::Encoder(TIM_HandleTypeDef*)	16	static
-Encoder.h:38:6:int Encoder::getEncoderCount()	16	static
-Motor.h:24:2:Motor::Motor(TIM_HandleTypeDef*, uint32_t, GPIO_TypeDef*, uint16_t, uint16_t)	24	static
-Motor.h:33:7:void Motor::frontRun()	16	static
-Motor.h:49:10:Motor::~Motor()	16	static
-Motor.h:49:10:virtual Motor::~Motor()	16	static
-CPPmain.cpp:10:6:void CppMain()	56	static
+CPPmain.cpp:10:6:void CppMain()	16	static

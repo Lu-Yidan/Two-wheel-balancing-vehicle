@@ -19,7 +19,6 @@ S_DEPS :=
 C_DEPS := 
 OBJCOPY_BIN := 
 CC_DEPS := 
-OBJCOPY_HEX := 
 SIZE_OUTPUT := 
 C++_DEPS := 
 EXECUTABLES := 
@@ -35,4 +34,5 @@ Core/Src \
 Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
 Hardware/Src \
+Math/Src \
 
