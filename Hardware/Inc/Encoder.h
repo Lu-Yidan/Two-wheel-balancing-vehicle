@@ -38,7 +38,7 @@ public:
 	int getEncoderCount() {
 		//先读取脉冲数
 		this->encoderCount = (short) (__HAL_TIM_GET_COUNTER(htim));
-		printf("TIM4定时器编码器模式捕获脉冲 = %d \n", encoderCount);
+//		printf("TIM4定时器编码器模式捕获脉冲 = %d \n", encoderCount);
 		//再计数器清零
 		__HAL_TIM_SET_COUNTER(htim, 0);
 		return encoderCount;

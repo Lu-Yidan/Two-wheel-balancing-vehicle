@@ -1,3 +1,2 @@
-Motor.h:41:7:void Motor::toggleRun()	16	static
 Button.cpp:12:6:void Button::buttonScan(Motor*)	16	static
-Button.cpp:25:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static
+Button.cpp:27:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static

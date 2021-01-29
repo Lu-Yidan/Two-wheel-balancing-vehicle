@@ -34,7 +34,8 @@ App/Src/CPPmain.o: ../App/Src/CPPmain.cpp \
  D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Button.h \
  D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Encoder.h \
  D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h \
- D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/mpu6050.h
+ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/mpu6050.h \
+ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Outputdata.h
 
 D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/App/Inc/CPPmain.h:
 
@@ -111,3 +112,5 @@ D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Encoder.h:
 D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Motor.h:
 
 D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/mpu6050.h:
+
+D:/Tools/STM32CubeIDE_1.5.0/workspace_1.5.0/Car_F103C8/Hardware/Inc/Outputdata.h:

@@ -176,19 +176,21 @@ void PendSV_Handler(void) {
 void SysTick_Handler(void) {
 	/* USER CODE BEGIN SysTick_IRQn 0 */
 	/*************lyd add here***************/
+	extern void ShowPlus();
 
-	extern void GetMpuData();
-	extern void AngleCalculate();
-	extern unsigned char g_ucMainEventCount;
-	/****************************************/
-	g_ucMainEventCount++;
-	if (g_ucMainEventCount >= 5) {
-		g_ucMainEventCount = 0;
-		//读取MPU6050数据函数，每5ms执行一次
-		GetMpuData();
-		//角度环计算函数，每5ms执行一次
-		AngleCalculate();
-	}
+	ShowPlus();
+//	extern void GetMpuData();
+//	extern void AngleCalculate();
+//	extern unsigned char g_ucMainEventCount;
+//	/****************************************/
+//	g_ucMainEventCount++;
+//	if (g_ucMainEventCount >= 5) {
+//		g_ucMainEventCount = 0;
+//		//读取MPU6050数据函数，每5ms执行一次
+//		GetMpuData();
+//		//角度环计算函数，每5ms执行一次
+//		AngleCalculate();
+//	}
 	/*************lyd end here***************/
 	/* USER CODE END SysTick_IRQn 0 */
 	HAL_IncTick();

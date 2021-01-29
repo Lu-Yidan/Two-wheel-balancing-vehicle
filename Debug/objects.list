@@ -29,6 +29,7 @@
 "Hardware/Src/Button.o"
 "Hardware/Src/Encoder.o"
 "Hardware/Src/Motor.o"
+"Hardware/Src/Mpu6050.o"
+"Hardware/Src/Outputdata.o"
 "Hardware/Src/TJ_MPU6050.o"
-"Hardware/Src/mpu6050.o"
 "Math/Src/Filter.o"

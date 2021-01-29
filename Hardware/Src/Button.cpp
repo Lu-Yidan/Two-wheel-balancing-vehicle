@@ -12,8 +12,10 @@ bool buttonDownFlag;
 void Button::buttonScan(Motor *motor) {
 	isButtonDown = buttonDownFlag;
 	if (isButtonDown) {
-		printf("button is down\r\n");
-		motor->toggleRun();
+//		printf("button is down\r\n");
+//		motor->toggleRun();
+//		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+//		 g_nSpeedTarget +=10;
 	}
 	buttonDownFlag = false;
 }
@@ -28,6 +30,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		if (HAL_GPIO_ReadPin(Button_GPIO_Port, Button_Pin) == GPIO_PIN_RESET) {
 			HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 			buttonDownFlag = true;
+			g_nSpeedTarget +=10;
 		}
 	}
 }
