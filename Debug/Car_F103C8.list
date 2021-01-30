@@ -1684,7 +1684,7 @@ int SpeedInnerControl(int nPulse,int nTarget)//速度内环控制
  800122a:	6078      	str	r0, [r7, #4]
  800122c:	6039      	str	r1, [r7, #0]
     int nError;//偏差
-    float fP = 10.0, fI = 0.9;//这里只用到PI，参数由电机的种类和负载决定
+    float fP = 10, fI = 0.9;//这里只用到PI，参数由电机的种类和负载决定
  800122e:	4b2f      	ldr	r3, [pc, #188]	; (80012ec <SpeedInnerControl+0xc8>)
  8001230:	617b      	str	r3, [r7, #20]
  8001232:	4b2f      	ldr	r3, [pc, #188]	; (80012f0 <SpeedInnerControl+0xcc>)
@@ -1859,7 +1859,6 @@ void SetMotorVoltageAndDirection(int nMotorPwm)//设置电机电压和方向
 
 08001364 <ShowPlus>:
 
-
 void ShowPlus(){
  8001364:	b580      	push	{r7, lr}
  8001366:	af00      	add	r7, sp, #0
@@ -1896,7 +1895,7 @@ void ShowPlus(){
  800138a:	781b      	ldrb	r3, [r3, #0]
  800138c:	2b01      	cmp	r3, #1
  800138e:	d10c      	bne.n	80013aa <ShowPlus+0x46>
-	        g_nLeftMotorOutput = SpeedInnerControl(g_nLeftMotorPulse,g_nSpeedTarget);
+	    	g_nLeftMotorOutput = SpeedInnerControl(g_nLeftMotorPulse,g_nSpeedTarget);
  8001390:	4b0c      	ldr	r3, [pc, #48]	; (80013c4 <ShowPlus+0x60>)
  8001392:	681b      	ldr	r3, [r3, #0]
  8001394:	461a      	mov	r2, r3
@@ -1915,7 +1914,7 @@ void ShowPlus(){
  80013ac:	781b      	ldrb	r3, [r3, #0]
  80013ae:	2b02      	cmp	r3, #2
  80013b0:	d104      	bne.n	80013bc <ShowPlus+0x58>
-	        SetMotorVoltageAndDirection(g_nLeftMotorOutput);
+	    	SetMotorVoltageAndDirection(g_nLeftMotorOutput);
  80013b2:	4b06      	ldr	r3, [pc, #24]	; (80013cc <ShowPlus+0x68>)
  80013b4:	681b      	ldr	r3, [r3, #0]
  80013b6:	4618      	mov	r0, r3
@@ -13152,11 +13151,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
  800518c:	20000200 	.word	0x20000200
 
 08005190 <_Z8MPU_Initv>:
-#include <Mpu6050.h>
-
-//初始化MPU6050
-//返回值:0,成功
-//    其他,错误代码
+/*
+ **初始化MPU6050
+ **返回值:0,成功
+ **其他,错误代码
+ */
 uint8_t MPU_Init(void) {
  8005190:	b580      	push	{r7, lr}
  8005192:	b082      	sub	sp, #8
@@ -13210,11 +13209,11 @@ uint8_t MPU_Init(void) {
  80051ea:	2b68      	cmp	r3, #104	; 0x68
  80051ec:	d10c      	bne.n	8005208 <_Z8MPU_Initv+0x78>
 	{
-		MPU_Write_Byte(MPU_PWR_MGMT1_REG, 0X01);//设置CLKSEL,PLL X轴为参考
+		MPU_Write_Byte(MPU_PWR_MGMT1_REG, 0X01);	//设置CLKSEL,PLL X轴为参考
  80051ee:	2101      	movs	r1, #1
  80051f0:	206b      	movs	r0, #107	; 0x6b
  80051f2:	f000 f88f 	bl	8005314 <_Z14MPU_Write_Bytehh>
-		MPU_Write_Byte(MPU_PWR_MGMT2_REG, 0X00);//加速度与陀螺仪都工作
+		MPU_Write_Byte(MPU_PWR_MGMT2_REG, 0X00);	//加速度与陀螺仪都工作
  80051f6:	2100      	movs	r1, #0
  80051f8:	206c      	movs	r0, #108	; 0x6c
  80051fa:	f000 f88b 	bl	8005314 <_Z14MPU_Write_Bytehh>
@@ -13237,10 +13236,11 @@ uint8_t MPU_Init(void) {
  8005214:	20000234 	.word	0x20000234
 
 08005218 <_Z16MPU_Set_Gyro_Fsrh>:
-//设置MPU6050陀螺仪传感器满量程范围
-//fsr:0,±250dps;1,±500dps;2,±1000dps;3,±2000dps
-//返回值:0,设置成功
-//    其他,设置失败
+ **设置MPU6050陀螺仪传感器满量程范围
+ **fsr:0,±250dps;1,±500dps;2,±1000dps;3,±2000dps
+ **返回值:0,设置成功
+ **其他,设置失败
+ */
 uint8_t MPU_Set_Gyro_Fsr(uint8_t fsr) {
  8005218:	b580      	push	{r7, lr}
  800521a:	b082      	sub	sp, #8
@@ -13262,10 +13262,11 @@ uint8_t MPU_Set_Gyro_Fsr(uint8_t fsr) {
  8005238:	bd80      	pop	{r7, pc}
 
 0800523a <_Z17MPU_Set_Accel_Fsrh>:
-//设置MPU6050加速度传感器满量程范围
-//fsr:0,±2g;1,±4g;2,±8g;3,±16g
-//返回值:0,设置成功
-//    其他,设置失败
+ **设置MPU6050加速度传感器满量程范围
+ **fsr:0,±2g;1,±4g;2,±8g;3,±16g
+ **返回值:0,设置成功
+ **其他,设置失败
+ */
 uint8_t MPU_Set_Accel_Fsr(uint8_t fsr) {
  800523a:	b580      	push	{r7, lr}
  800523c:	b082      	sub	sp, #8
@@ -13287,10 +13288,11 @@ uint8_t MPU_Set_Accel_Fsr(uint8_t fsr) {
  800525a:	bd80      	pop	{r7, pc}
 
 0800525c <_Z11MPU_Set_LPFt>:
-//设置MPU6050的数字低通滤波器
-//lpf:数字低通滤波频率(Hz)
-//返回值:0,设置成功
-//    其他,设置失败
+/*
+ **设置MPU6050的数字低通滤波器
+ **返回值:0,设置成功
+ **其他,设置失败
+ */
 uint8_t MPU_Set_LPF(uint16_t lpf) {
  800525c:	b580      	push	{r7, lr}
  800525e:	b084      	sub	sp, #16
@@ -13357,10 +13359,11 @@ uint8_t MPU_Set_LPF(uint16_t lpf) {
  80052bc:	bd80      	pop	{r7, pc}
 
 080052be <_Z12MPU_Set_Ratet>:
-//设置MPU6050的采样率(假定Fs=1KHz)
-//rate:4~1000(Hz)
-//返回值:0,设置成功
-//    其他,设置失败
+ **设置MPU6050的采样率(假定Fs=1KHz)
+ **rate:4~1000(Hz)
+ **返回值:0,设置成功
+ **其他,设置失败
+ */
 uint8_t MPU_Set_Rate(uint16_t rate) {
  80052be:	b580      	push	{r7, lr}
  80052c0:	b084      	sub	sp, #16
@@ -13410,11 +13413,11 @@ uint8_t MPU_Set_Rate(uint16_t rate) {
  8005312:	bd80      	pop	{r7, pc}
 
 08005314 <_Z14MPU_Write_Bytehh>:
-//IIC写一个字节
-//reg:寄存器地址
-//data:数据
-//返回值:0,正常
-//    其他,错误代码
+ **reg:寄存器地址
+ **data:数据
+ **返回值:0,正常
+ **其他,错误代码
+ */
 uint8_t MPU_Write_Byte(uint8_t reg, uint8_t data) {
  8005314:	b580      	push	{r7, lr}
  8005316:	b088      	sub	sp, #32
@@ -13461,9 +13464,11 @@ uint8_t MPU_Write_Byte(uint8_t reg, uint8_t data) {
  800535c:	20000234 	.word	0x20000234
 
 08005360 <_Z13MPU_Read_Byteh>:
-//IIC读一个字节
-//reg:寄存器地址
-//返回值:读到的数据
+/*
+ **IIC读一个字节
+ **reg:寄存器地址
+ **返回值:读到的数据
+ */
 uint8_t MPU_Read_Byte(uint8_t reg) {
  8005360:	b580      	push	{r7, lr}
  8005362:	b088      	sub	sp, #32
