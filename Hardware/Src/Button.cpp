@@ -30,7 +30,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		if (HAL_GPIO_ReadPin(Button_GPIO_Port, Button_Pin) == GPIO_PIN_RESET) {
 			HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 			buttonDownFlag = true;
-			g_nSpeedTarget +=10;
+//			g_nSpeedTarget +=10;
 		}
 	}
 }
