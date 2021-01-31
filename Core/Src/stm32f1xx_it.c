@@ -191,19 +191,7 @@ void SysTick_Handler(void)
 	extern void ShowPlus();
 
 	ShowPlus();
-//	extern void GetMpuData();
-//	extern void AngleCalculate();
-//	extern unsigned char g_ucMainEventCount;
-//	/****************************************/
-//	g_ucMainEventCount++;
-//	if (g_ucMainEventCount >= 5) {
-//		g_ucMainEventCount = 0;
-//		//读取MPU6050数据函数，每5ms执行�?�?
-//		GetMpuData();
-//		//角度环计算函数，�?5ms执行�?�?
-//		AngleCalculate();
-//	}
-	/*************lyd end here***************/
+
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
